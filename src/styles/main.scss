@@ -1,0 +1,127 @@
+$colors: (
+  primary: #ffffff,
+  primary-light: lighten(#ffffff, 40%),
+  bg: lighten(rgb(129, 127, 127), 40%),
+  submit-btn: #0970c5,
+);
+
+$padding: 20px;
+$borders: 15px;
+$border-radius: 5px;
+$img-border-radius: 10px;
+$btn-width: 150px;
+$btn-height: 40px;
+
+@function color($colour-name) {
+  @return map-get($colors, $colour-name);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0 0;
+  background-color: color(bg);
+}
+
+header {
+  position: relative;
+  width: 100%;
+  color: #f1f1f1;
+  background: #555;
+  z-index: 10;
+  margin: 0 0;
+}
+
+button {
+  border-radius: $border-radius;
+  width: $btn-width;
+  height: $btn-height;
+  background: color(submit-btn);
+  color: color(primary);
+}
+
+.wrapper {
+  background-color: color(bg);
+}
+
+hr {
+  margin: 5px;
+}
+
+.todo-gallery {
+  width: 90%;
+  justify-content: center;
+  margin: auto;
+  border-radius: $border-radius;
+  background-color: color(primary);
+  border-top: 10px;
+}
+
+.sticky-bar {
+  background-color: color(primary);
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+  text-align: center;
+}
+
+.emptyTodo {
+  padding: $padding;
+  text-align: center;
+  border-radius: $border-radius;
+  margin: 10px;
+}
+
+ul {
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 10px;
+}
+
+li {
+  flex-grow: 1;
+  list-style-type: none;
+  padding: 0.5vh;
+  max-width: 50%;
+}
+
+// ADVANCED
+
+// Portrait
+
+@media (max-aspect-ratio: 1/1) {
+  li {
+    height: 30vh;
+  }
+}
+
+// Short screens
+
+@media (max-height: 480px) {
+  li {
+    height: 80vh;
+  }
+}
+
+// Smaller screens in portrait
+
+@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  ul {
+    flex-direction: row;
+  }
+
+  li {
+    height: auto;
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
+}
