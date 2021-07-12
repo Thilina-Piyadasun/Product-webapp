@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Todo } from "../models/Todo";
 import { deleteProductAction, editProductAction, pageChange, restAllAction, productSort } from "../actions/ProductActionTypes";
 import { connect } from "react-redux";
@@ -44,7 +44,7 @@ const ProductTable = (props: any) => {
   const [actionableProduct, setActionableProduct] = useState<Product>();
   const [pageId, setPageId] = useState(1);
 
-  const { productItemList = [], dispatchDeleteProduct, dispatchPageChange, dispatchSort, onSort } = props;
+  const { productItemList = [], dispatchDeleteProduct, dispatchPageChange, onSort } = props;
 
   const ITEMS_PER_PAGE = 5;
   const deletePressed = (item: any) => {
