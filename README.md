@@ -1,5 +1,5 @@
 # Product-app
-Todo Web Application
+Web Application
 
 ## Instructions to run the application
 
